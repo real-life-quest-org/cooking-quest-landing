@@ -1,0 +1,71 @@
+:root{
+  --accent: #D66A3A;
+  --muted: #6B5B53;
+  /* card should be slightly lighter than page so it reads as a 'panel' */
+  --card-bg: #fffdf9; /* very light warm white */
+  --page-bg: #f4e8e0; /* slightly darker warm background */
+  --max-width: 720px;
+}
+
+html,body,#root{height:100%;}
+
+body{
+  margin:0;
+  background:var(--page-bg);
+  color: #3b2f2a;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+main.container{
+  padding:28px;
+  max-width:var(--max-width);
+  margin:0 auto;
+}
+
+.header-card{
+  /* use the card bg so header reads as part of the panel system */
+  background: linear-gradient(180deg,var(--card-bg) 0%, #fff6f0 100%);
+  border-radius:16px;
+  padding:28px 24px;
+  box-shadow:0 10px 40px rgba(59,47,42,0.08);
+  margin-bottom:28px;
+  overflow: hidden;
+}
+
+.header-row{display:flex;gap:20px;align-items:center}
+.header-icon{width:96px;height:96px;flex-shrink:0;border-radius:12px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,0.08)}
+.header-title{font-size:32px;margin:0 0 8px;line-height:1.15;font-weight:700}
+.header-sub{margin:0;color:var(--muted);font-size:16px}
+.cta{display:block;width:100%;box-sizing:border-box;margin:12px 0 0;padding:12px 20px;border-radius:10px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;text-align:center}
+
+.card{background:var(--card-bg);/* higher contrast against page */padding:20px;border-radius:14px;box-shadow:0 8px 30px rgba(59,47,42,0.06);margin-bottom:18px}
+.card h2{font-size:20px;margin:0 0 12px}
+.card p, .card li{color:var(--muted);line-height:1.7}
+
+form#prereg{margin-top:12px}
+input[type=email]{padding:10px;border-radius:8px;border:1px solid #e6e0db;width:100%;max-width:420px;box-sizing:border-box}
+button[type=submit]{padding:12px 24px;border-radius:8px;border:none;background:var(--accent);color:#fff;font-weight:600}
+
+footer{padding:24px 0;text-align:center;color:#667085}
+
+/* responsive */
+@media (max-width:600px){
+  .header-row{flex-direction:column;align-items:flex-start}
+  .header-title{font-size:28px}
+  .header-sub{font-size:15px}
+  .header-card{padding:16px 16px 22px}
+  main.container{padding:16px}
+  .card{padding:14px}
+  .hero-image{width:72px;height:72px}
+  .cta{display:block;width:100%;max-width:none;margin:8px 0 0;padding:10px 12px;font-size:15px;box-shadow:0 3px 8px rgba(214,106,58,0.10)}
+  button[type=submit]{width:100%;max-width:none}
+}
+
+/* hero image centered above title */
+.hero-image{display:block;margin:0 auto 12px;width:96px;height:96px;border-radius:14px;background:#fff;box-shadow:0 10px 30px rgba(0,0,0,0.08);display:flex;align-items:center;justify-content:center}
+
+/* numbered steps style (game-like badges) */
+.step-list{counter-reset:step;list-style:none;padding-left:0;margin-left:0}
+.step-list li{position:relative;padding-left:48px;margin-bottom:14px}
+.step-list li:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:0;width:36px;height:36px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;box-shadow:0 6px 18px rgba(214,106,58,0.18)}
