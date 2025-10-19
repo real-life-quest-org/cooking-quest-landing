@@ -2,9 +2,13 @@ generator client {
   provider = "prisma-client-js"
 }
 
+// Use PostgreSQL in production. During development you can still use sqlite
+// by setting DATABASE_URL=file:./dev.db in your local .env file.
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
+  // Optional: set a shadow database for migrations if you use migrate
+  // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
 }
 
 model PreRegistration {
